@@ -1,0 +1,60 @@
+name: Generate
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: {}
+  schedule:
+    # “At 08:30 on every day-of-week from Monday through Friday.”
+    - cron: 30 8 * * 1-5
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    
+    timeout-minutes: 3
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.15.0
+
+      - name: Build 
+        run: |
+          npm install
+          npm run build
+
+      - name: Commit files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -a -m "feat(postman): Update collection"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+
+      # Disabled for now as it seems the Postman API does not like 
+      # it that we use JWT auth. Raised a ticket.
+      #
+      # - name: Push to Postman
+      #   id: process
+      #   uses: gcatanese/push-to-postman-action@main
+      #   with:
+      #     goal: update
+      #     postman-key: ${{ secrets.POSTMAN_API_KEY }}
+      #     postman-file: "Gr4vy.postman_collection.json"
+      #     collection-id: 11991320-260b3f2c-eefa-41d7-8587-72377fca9812

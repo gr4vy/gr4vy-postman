@@ -1,0 +1,23 @@
+{
+  "name": "gr4vy-postman",
+  "version": "1.0.0",
+  "description": "Gr4vy Postman collection",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "curl -o openapi.json https://gr4vy.github.io/gr4vy-openapi/core/openapi.json -s",
+    "build": "node scripts/convert.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gr4vy/gr4vy-postman.git"
+  },
+  "author": "Gr4vy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gr4vy/gr4vy-postman/issues"
+  },
+  "homepage": "https://github.com/gr4vy/gr4vy-postman#readme",
+  "dependencies": {
+    "openapi-to-postmanv2": "^5.0.0"
+  }
+}
