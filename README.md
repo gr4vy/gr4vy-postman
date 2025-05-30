@@ -8,7 +8,7 @@
 
 Our Postman Collection is updated every few weeks based on our OpenAPI specification.
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/gr4vy-com/gr4vy-public/collection/11991320-b51def04-138d-4b15-90f0-3f795b889820/?action=share&creator=11991320&active-environment=11991320-40e8d3e3-b694-428e-9a58-c38359120620)
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://god.gw.postman.com/run-collection/11991320-b51def04-138d-4b15-90f0-3f795b889820?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D11991320-b51def04-138d-4b15-90f0-3f795b889820%26entityType%3Dcollection%26workspaceId%3De6fdb014-7757-4909-98ae-c50d97ddb383)
 
 For the latest build, you can import the local [`Gr4vy.postman_collection.json`](Gr4vy.postman_collection.json) into your Postman manually.
 
@@ -27,14 +27,3 @@ Once set up, make sure to configure the following fields with your own values.
 * `embed` - Any additional embed params you want to add.
 
 For the latest build, you can import the local [`Gr4vy.postman_environment.json`](Gr4vy.postman_environment.json) into your Postman manually.
-
-## Development & Contribution
-
-Please follow the [contribution guidelines](./CONTRIBUTING.md) when contributing
-to the source of this project.
-
-1. [Installation & setup](./docs/index.md)
-2. [Releasing a new collection](./docs/release.md)
-3. [Notes for Box employees](./docs/boxers.md)
-4. [Contributing a pull request](./docs/pull-request.md)
-5. [Updating dependencies](./docs/dependencies.md)
