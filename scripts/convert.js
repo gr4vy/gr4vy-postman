@@ -68,7 +68,7 @@ const EVENT = [
     "script": {
       "type": "text/javascript",
       "exec": [
-        "pm.request.headers.add({key: 'X-GR4VY-MERCHANT-ACCOUNT-ID', value: '{{ merchantAccountId }}' });"
+        "pm.request.headers.add({key: 'X-GR4VY-MERCHANT-ACCOUNT-ID', value: pm.environment.get(\"merchantAccountId\") });"
       ]
     }
   }
