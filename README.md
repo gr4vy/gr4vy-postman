@@ -1,6 +1,5 @@
 # Gr4vy Postman Collection
 
-![CI](https://github.com/gr4vy/gr4vy-postman/workflows/Generate/badge.svg) 
 
 [Postman](https://www.getpostman.com/) is a tool that lets you build and test HTTP requests in an easy-to-use interface without configuring a full development environment. Our official Postman Collection allows you to quicly get started with the [Gr4vy APIs](https://gr4vy.com/) in Postman.
 
