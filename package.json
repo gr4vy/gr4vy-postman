@@ -4,7 +4,7 @@
   "description": "Gr4vy Postman collection",
   "main": "index.js",
   "scripts": {
-    "prebuild": "curl -o openapi.json https://gr4vy.github.io/gr4vy-openapi/core/openapi.json -s",
+    "prebuild": "curl -o openapi.json https://gr4vy.github.io/openapi/core/openapi.json -s",
     "build": "node scripts/convert.js"
   },
   "repository": {
