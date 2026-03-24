@@ -23,10 +23,10 @@ jobs:
 
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22.15.0
 
@@ -42,7 +42,7 @@ jobs:
           git commit -a -m "feat(postman): Update collection"
 
       - name: Push changes
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@4cc74773234f74829a8c21bc4d69dd4be9cfa599 # master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
