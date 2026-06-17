@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/gr4vy/gr4vy-postman#readme",
   "dependencies": {
-    "openapi-to-postmanv2": "^5.0.0"
+    "openapi-to-postmanv2": "^5.8.0"
   }
 }
