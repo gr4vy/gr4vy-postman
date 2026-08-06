@@ -47,14 +47,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
 
-      # Disabled for now as it seems the Postman API does not like 
-      # it that we use JWT auth. Raised a ticket.
-      #
-      # - name: Push to Postman
-      #   id: process
-      #   uses: gcatanese/push-to-postman-action@main
-      #   with:
-      #     goal: update
-      #     postman-key: ${{ secrets.POSTMAN_API_KEY }}
-      #     postman-file: "Gr4vy.postman_collection.json"
-      #     collection-id: 11991320-260b3f2c-eefa-41d7-8587-72377fca9812
+      - name: Push to Postman
+        id: process
+        uses: gcatanese/push-to-postman-action@main
+        with:
+          goal: update
+          postman-key: ${{ secrets.POSTMAN_API_KEY }}
+          postman-file: "Gr4vy.postman_collection.json"
+          collection-id: 11991320-46b91ff9-d361-420d-b5b6-a2f139cb4e4e
