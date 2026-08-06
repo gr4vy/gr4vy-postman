@@ -17,6 +17,9 @@ jobs:
     
     timeout-minutes: 3
 
+    env:
+      POSTMAN_COLLECTION_ID: ${{ vars.POSTMAN_COLLECTION_ID }}
+
     permissions:
       contents: write
       pull-requests: write
@@ -54,4 +57,4 @@ jobs:
           goal: update
           postman-key: ${{ secrets.POSTMAN_API_KEY }}
           postman-file: "Gr4vy.postman_collection.json"
-          collection-id: 11991320-46b91ff9-d361-420d-b5b6-a2f139cb4e4e
+          collection-id: ${{ env.POSTMAN_COLLECTION_ID }}
