@@ -52,7 +52,7 @@ jobs:
 
       - name: Push to Postman
         id: process
-        uses: gcatanese/push-to-postman-action@main
+        uses: gcatanese/push-to-postman-action@d849d1167946121113dd9be98c9d43af09e272ef # v1.0.0
         with:
           goal: update
           postman-key: ${{ secrets.POSTMAN_API_KEY }}
