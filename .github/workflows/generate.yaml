@@ -42,7 +42,6 @@ jobs:
           git commit -a -m "feat(postman): Update collection"
 
       - name: Push changes
-        if: ${{ github.event_name != 'pull_request' }}
         uses: ad-m/github-push-action@4cc74773234f74829a8c21bc4d69dd4be9cfa599 # master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
