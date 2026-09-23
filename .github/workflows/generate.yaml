@@ -17,6 +17,9 @@ jobs:
     
     timeout-minutes: 3
 
+    env:
+      POSTMAN_COLLECTION_ID: ${{ vars.POSTMAN_COLLECTION_ID }}
+
     permissions:
       contents: write
       pull-requests: write
@@ -47,14 +50,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
 
-      # Disabled for now as it seems the Postman API does not like 
-      # it that we use JWT auth. Raised a ticket.
-      #
-      # - name: Push to Postman
-      #   id: process
-      #   uses: gcatanese/push-to-postman-action@main
-      #   with:
-      #     goal: update
-      #     postman-key: ${{ secrets.POSTMAN_API_KEY }}
-      #     postman-file: "Gr4vy.postman_collection.json"
-      #     collection-id: 11991320-260b3f2c-eefa-41d7-8587-72377fca9812
+      - name: Push to Postman
+        id: process
+        uses: gcatanese/push-to-postman-action@d849d1167946121113dd9be98c9d43af09e272ef # v1.0.0
+        with:
+          goal: update
+          postman-key: ${{ secrets.POSTMAN_API_KEY }}
+          postman-file: "Gr4vy.postman_collection.json"
+          collection-id: ${{ env.POSTMAN_COLLECTION_ID }}
