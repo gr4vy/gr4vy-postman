@@ -76,7 +76,7 @@ const EVENT = [
 
 Converter.convert(
   { type: "string", data: openapi, },
-  { folderStrategy: "Tags", alwaysInheritAuthentication: true, enableOptionalParameters: false, exampleParametersResolution: "Schema" },
+  { folderStrategy: "Tags", alwaysInheritAuthentication: true, enableOptionalParameters: false, exampleParametersResolution: "Schema", optimizeConversion: false, stackLimit: 50 },
   (_, conversionResult) => {
     if (!conversionResult.result) {
       console.log("Could not convert", conversionResult.reason);
