@@ -53,13 +53,30 @@ const AUTH = {
   ],
 };
 
+// The UID of the published collection, as "<ownerId>-<collectionId>". Supplied by
+// the POSTMAN_COLLECTION_ID repository variable so it is defined in one place and
+// cannot drift from the collection the workflow pushes to.
+const COLLECTION_UID = process.env.POSTMAN_COLLECTION_ID || "";
+const separatorIndex = COLLECTION_UID.indexOf("-");
+
+if (separatorIndex < 1) {
+  console.error(
+    "POSTMAN_COLLECTION_ID must be set to a collection UID, " +
+      "e.g. 11991320-46b91ff9-d361-420d-b5b6-a2f139cb4e4e"
+  );
+  process.exit(1);
+}
+
+const OWNER_ID = COLLECTION_UID.slice(0, separatorIndex);
+const COLLECTION_ID = COLLECTION_UID.slice(separatorIndex + 1);
+
 const INFO = {
-  "_postman_id": "466eb9e2-ed08-473d-804e-7043b3fd35c1",
+  "_postman_id": COLLECTION_ID,
   "name": "Gr4vy",
   "description": "The Gr4vy API.",
   "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-  "_exporter_id": "11991320",
-  "_collection_link": "https://www.postman.com/gr4vy-com/workspace/gr4vy-public/collection/11991320-466eb9e2-ed08-473d-804e-7043b3fd35c1?action=share&source=collection_link&creator=11991320"
+  "_exporter_id": OWNER_ID,
+  "_collection_link": `https://www.postman.com/gr4vy-com/workspace/gr4vy-public/collection/${COLLECTION_UID}?action=share&source=collection_link&creator=${OWNER_ID}`
 }
 
 const EVENT = [
